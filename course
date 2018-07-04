@@ -1,0 +1,39 @@
+HTML
+
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <p>My name is {{firstName}}</p>
+  <input v-model='userInput' @keyup.enter='changeName'/>
+  <p>{{userInput}}</p>
+  <button @click='changeName'>Change name</button>
+  <p>{{fullName()}}</p>
+  <p>{{computedFullName}}</p>
+</div>
+
+
+JS
+
+new Vue({
+	el: '#app',
+	data() { // state
+		return {
+  		firstName: 'Leagrane',
+      lastName: 'Bushman',
+      userInput: 'cookies'
+  	}
+	},
+	methods: {
+		changeName() {
+    			this.firstName= 'France';
+    	},
+    		fullName() {
+    			return this.firstName + ' ' + this.lastName;
+    		} 
+	},
+  	computed: {
+  		computedFullName() {
+    			return this.firstName + ' ' + this.lastName;
+    	}
+  }
+})
